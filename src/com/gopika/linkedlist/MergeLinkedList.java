@@ -39,7 +39,7 @@ public class MergeLinkedList {
 		System.out.println("");
 		
 		//start and end indices
-		int start=2, end=2;
+		int start=1, end=2;
 		
 		
 		SinglyLinkedList tempNode;
@@ -58,12 +58,24 @@ public class MergeLinkedList {
 			while(runner1!=null) {
 				currentIndex++;
 				
-				if(currentIndex == start-1) {
+				if(start == 1) {
+					tempNode = runner1;
+					list1 = list2;
 					
-					if(start == end) {
-						runner2.next = runner1.next.next;
-						runner1.next = list2;					
-						break;					
+				}
+				
+				if(currentIndex == start-1 || (start ==1 && currentIndex ==1)) {
+					
+					if(start == 1) {					
+						list1 = list2;						
+					}else {
+						
+						if(start == end) {
+							runner2.next = runner1.next.next;
+							runner1.next = list2;					
+							break;					
+						}	
+						
 					}
 					
 					tempNode = runner1;
